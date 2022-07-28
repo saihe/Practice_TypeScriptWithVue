@@ -1,32 +1,31 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
-  </div>
+  <v-app>
+    <v-main>
+      <v-toolbar
+        class="blue-grey--text text--lighten-5"
+        color="blue"
+        height="50"
+      >
+        <v-toolbar-title v-text="'お小遣い帳'" />
+      </v-toolbar>
+      <v-snackbar v-model="snackbar" />
+      <BalanceList />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import BalanceList from "./views/BalanceList.vue";
+import snackbarStore from "./store/module/snackber";
+export default {
+  name: "App",
 
-nav {
-  padding: 30px;
-}
+  components: {
+    BalanceList,
+  },
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    snackbar: snackbarStore.state,
+  }),
+};
+</script>
