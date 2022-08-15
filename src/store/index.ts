@@ -1,15 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
-// import CategoryStore from "./module/category";
+import { BalanceModule } from "./module/balance";
+import { extractVuexModule } from "vuex-class-component";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
+const store = new Vuex.Store({
   modules: {
-    // "cateogry": CategoryStore,
+    ...extractVuexModule(BalanceModule),
   },
 });
+export default store;

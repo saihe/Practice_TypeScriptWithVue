@@ -2,7 +2,7 @@
   <v-card>
     <v-list two-line>
       <v-list-item-group>
-        <v-list-item v-for="(balance, index) in balanceList" :key="index">
+        <v-list-item v-for="(balance, index) in balances" :key="index">
           <v-list-item-content class="mt-3 pl-3" width="90%" elevation="24">
             <v-list-item-title v-text="balance.date" />
             <v-list-item-subtitle>

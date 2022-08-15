@@ -31,6 +31,13 @@ export default class BalanceListItemDialog extends Vue {
   }
 
   public submit(): void {
+    this.$store.commit("balance/push", {
+      date: this.date,
+      amount: this.amount,
+      cateogry: categoryStore.categories.find(
+        (c) => c.value === this.selectedItem
+      )?.text,
+    });
     this.dialog = false;
     this.$emit("snackbar", true);
   }

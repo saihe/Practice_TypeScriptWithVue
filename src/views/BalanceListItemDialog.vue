@@ -39,7 +39,7 @@
           v-model="selectedItem"
           label="科目"
           single-line
-          return-object
+          no-data-text="科目を選択してください。"
           :items="categoryStore.categories"
         />
         <v-text-field
